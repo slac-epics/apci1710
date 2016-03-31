@@ -1,0 +1,18 @@
+# asyn record
+file "$(ASYN)/db/asynRecord.db"
+{
+pattern
+{    P,       R,     PORT,   ADDR, IMAX, OMAX}
+{   mc22:addidata:,  asyn1, apci1710,    0,  80,    80}
+}
+
+# Counters
+file "../../db/APCI1710Counter.template"
+{
+pattern
+{     P,         R,       PORT,    ADDR}
+{   mc22:addidata:,  Counter1,  apci1710,      0}
+{   mc22:addidata:,  Counter2,  apci1710,      1}
+{   mc22:addidata:,  Counter3,  apci1710,      2}
+{   mc22:addidata:,  Counter4,  apci1710,      3}
+}
