@@ -1,0 +1,46 @@
+record(ai, "$(P)$(R)POSN")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR))POSITION")
+    field(SCAN, "I/O Intr")
+    field(LINR, "SLOPE")
+    field(ESLO, "$(ESLO)")
+    field(EGU,  "$(EGU)")
+}
+
+record(ai, "$(P)$(R)RTPOSN")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR))RT_POSITION")
+    field(SCAN, "I/O Intr")
+    field(LINR, "SLOPE")
+    field(ESLO, "$(ESLO)")
+    field(EGU,  "$(EGU)")
+    field(TSE,  "-2")
+    field(PRIO, "HIGH")
+}
+
+record(longin, "$(P)$(R)Counts")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR))COUNTER_VALUE")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P)$(R)RTCounts")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR))RT_COUNTER_VALUE")
+    field(SCAN, "I/O Intr")
+    field(TSE,  "-2")
+    field(PRIO, "HIGH")
+}
+
+record(bo, "$(P)$(R)Reset")
+{
+    field(PINI, "YES")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(ADDR))COUNTER_RESET")
+    field(VAL,  "1")
+}
+

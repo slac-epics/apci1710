@@ -28,7 +28,7 @@ DB_INSTALLS += $(EVENT)/db/Bsa.db
 DB += bsaSimulator.db
 
 # For ADDI-DATA asyn Driver
-DB += APCI1710Counter.template
+DB += APCI1710Counter.db
 
 # Install Common databases needed by All IOCs
 # ========================================================

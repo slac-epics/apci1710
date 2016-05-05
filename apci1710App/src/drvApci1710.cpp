@@ -27,6 +27,8 @@ static const char *driverName = "APCI1710";
 // Counter parameters
 #define counterCountsString       "COUNTER_VALUE"
 #define counterRTCountsString     "RT_COUNTER_VALUE"
+#define counterPositionString     "POSITION"
+#define counterRTPositionString   "RT_POSITION"
 #define counterResetString        "COUNTER_RESET"
 
 #define NUM_COUNTERS    4   // Number counters on APCI1710
@@ -58,7 +60,10 @@ protected:
   int counterCounts_;
   #define FIRST_APCI1710_PARAM  counterCounts_
 
+  int counterPosition_;
+
   int counterRTCounts_;
+  int counterRTPosition_;
 
   int counterReset_;
   #define LAST_APCI1710_PARAM   counterReset_
@@ -116,6 +121,8 @@ APCI1710::APCI1710(const char *portName, int boardNum)
   // Counter parameters
   createParam(counterCountsString,             asynParamInt32, &counterCounts_);
   createParam(counterRTCountsString,           asynParamInt32, &counterRTCounts_);
+  createParam(counterPositionString,           asynParamInt32, &counterPosition_);
+  createParam(counterRTPositionString,         asynParamInt32, &counterRTPosition_);
   createParam(counterResetString,              asynParamInt32, &counterReset_);
 
   // initialize counter interface
@@ -309,6 +316,7 @@ void APCI1710::pollerThread()
         epicsThreadSleep(1.0);        // avoid spinning too fast in error loop
       } else {
         setIntegerParam(i, counterCounts_, countVal);
+        setIntegerParam(i, counterPosition_, countVal);
       }
     }
 
@@ -345,6 +353,7 @@ void APCI1710::interruptThread(int adrs)
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR, "interruptThread(%d): setTimeStamp() failed\n", adrs);
       }
       setIntegerParam(adrs, counterRTCounts_, buf.counter);
+      setIntegerParam(adrs, counterRTPosition_, buf.counter);
       callParamCallbacks(adrs);
     } else {
       asynPrint(pasynUserSelf, ASYN_TRACE_ERROR, "interruptThread(%d): read() returned %zd\n", adrs, rv);
