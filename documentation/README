@@ -1,0 +1,73 @@
+[apci1710-asyn/documentation/README]
+
+
+Overview
+
+    This is an EPICS asyn port driver for the ADDI-DATA APCIe-1711 PCI-Express incremental counter board.
+    The driver supports reading counters by both polling and interrupt modes.
+    Interrupt mode support includes EVR timestamps.
+    Reading of both raw counts and engineering units is supported.
+
+    Source for an example ioc application is provided.  To build it, uncomment PROD_IOC in apci1710App/src/Makefile.
+    It will be necessary to uncomment additional dependencies in makefiles and configure/RELEASE.
+
+    See ADDI-DATA's website for hardware info:
+    http://addi-data.com
+
+
+Record Descriptions
+
+    Record Name             Description
+    -----------------------+----------------------------------------------------------------------------------------------
+    $(P)$(R)Counts          Read the raw counter value; polled at 10 Hz.
+    $(P)$(R)RTCounts        Read the real-time raw counter value; interrupt mode with EVR timestamps support.
+    $(P)$(R)POSN            Read the engineering unit value; polled at 10 Hz.
+    $(P)$(R)RTPOSN          Read the real-time engineering unit value; interrupt mode with EVR timestamps support.
+    $(P)$(R)Reset           Zero the counter by writing 1 to this binary output.
+
+
+Database Template Macro Requirements
+
+    Macro Name              Description
+    -----------------------+----------------------------------------------------------------------------------------------
+    $(P) and $(R)           These macros are concatenated to form the PV prefix.
+    $(PORT)                 Must match the asyn port.
+    $(ADDR)                 Channel index: 0, 1, 2, 3
+    $(ESLO)                 Linear conversion factor (ai record, LINR=SLOPE).  Must be non-0.
+    $(EGU)                  Human readable engineering unit description, up to 16 chars.
+
+
+Kernel Module Requirements
+
+    Two kernel modules are required.
+
+    Name            Origin      Path
+    ---------------+----------+-------------------------------------------------------------------------------------------
+    apci1710.ko     ADDI-DATA  /afs/slac/g/lcls/package/linuxKernel_Modules/apci1710drv/r1439/buildroot-2015.02-x86_64
+    apci1710ctr.ko  SLAC       /afs/slac/g/lcls/package/linuxKernel_Modules/apci1710ctr/r1439_1_0/buildroot-2015.02-x86_64
+
+    Module apci1710 is used by module apci1710ctr. Thus one must insert module apci1710.ko into the Linux kernel
+    before apci1710ctr.ko.
+
+
+Debugging Tips
+
+    Using the apci1710ctr module's /proc interface, it is simple to verify basic counter operation from the shell.
+    For example, to read the first counter:
+
+      # cat /proc/driver/apci1710ctr0/counter 
+      52232462
+      # cat /proc/driver/apci1710ctr0/counter 
+      52352236
+      #
+
+    If /proc/driver/apci1710ctr0 is missing then the kernel modules have not been inserted successfully.
+
+    Test the $(P)$(R)Counts record first.  It is a longin record, and it reports raw counts.
+    Test the $(P)$(R)POSN record next.  It is an ai record with LINR=SLOPE; the ESLO macro must be non-0.
+    Test the $(P)$(R)RTCounts $(P)$(R)RTPOSN records last.  They require external interrupts to function.
+
+
+Known Issues
+
+    Support is currently limited to a single board with 4 counter channels.
