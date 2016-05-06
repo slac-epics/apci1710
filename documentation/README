@@ -1,10 +1,12 @@
-[apci1710-asyn/documentation/README]
-
+File       : documentation/README
+Author     : Chris Ford <caf@slac.stanford.edu>
+Created    : 2000-05-06
+Last update: 2016-05-06
 
 Overview
 
     This is an EPICS asyn port driver for the ADDI-DATA APCIe-1711 PCI-Express incremental counter board.
-    The driver supports reading counters by both polling and interrupt modes.
+    The driver supports 4 counter channels by both polling and interrupt modes.
     Interrupt mode support includes EVR timestamps.
     Reading of both raw counts and engineering units is supported.
 
@@ -30,14 +32,39 @@ Database Template Macro Requirements
 
     Macro Name              Description
     -----------------------+----------------------------------------------------------------------------------------------
-    $(P) and $(R)           These macros are concatenated to form the PV prefix.
-    $(PORT)                 Must match the asyn port.
+    $(P) and $(R)           These macros are concatenated to form the record name prefix.
+    $(PORT)                 Must match the port name passed to APCI1710Config() (see Configuration Command, below).
     $(ADDR)                 Channel index: 0, 1, 2, 3
     $(ESLO)                 Linear conversion factor (ai record, LINR=SLOPE).  Must be non-0.
     $(EGU)                  Human readable engineering unit description, up to 16 chars.
 
 
-Kernel Module Requirements
+Configuration Command
+
+    This C function can be called directly or from iocsh:
+
+        int APCI1710Config(const char *portName, int boardNum)
+
+    Only board number 0 is currently supported.  Example call:
+
+        APCI1710Config("apci1710", 0)
+
+
+EPICS Version Information
+
+    This driver was developed with the following EPICS version environment:
+
+        ASYN_MODULE_VERSION=asyn-R4-26_0
+        EPICS_BASE_VER=base-R3-14-12-4_1-1
+        EVENT_MODULE_VERSION=evrClient-R1-0-p4
+        MISCUTILS_MODULE_VERSION=miscUtils-R2-2-2
+
+    For updated version information see the RELEASE_NOTES file found in the top-level directory.
+
+
+Linux Kernel Requirements
+
+    This driver was developed on the "Buildroot 2015.02" OS release, using Linux kernel 3.18.11 with real-time patches.
 
     Two kernel modules are required.
 
@@ -68,6 +95,6 @@ Debugging Tips
     Test the $(P)$(R)RTCounts $(P)$(R)RTPOSN records last.  They require external interrupts to function.
 
 
-Known Issues
+To Do List
 
-    Support is currently limited to a single board with 4 counter channels.
+    Add support for multiple counter boards.
