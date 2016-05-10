@@ -6,6 +6,12 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
+
+# EXTERNAL NON EPICS PACKAGES: USER INCLUDES AND LIBRARIES
+#========================================================
+
+USR_INCLUDES += $(KERNEL_MODULE_APCI1710CTR_INCLUDE)
+
 #==================================================
 # Build an IOC support library
 
