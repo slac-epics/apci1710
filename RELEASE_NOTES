@@ -1,3 +1,5 @@
+apci1710-asyn-R1-0-5:   Change EVENT to EVRCLIENT in configure/RELEASE
+
 apci1710-asyn-R1-0-4:   Use evrClient-R1-0-p6
 
 apci1710-asyn-R1-0-3:   Build against ASYN_MODULE_VERSION=asyn-R4-26_0
