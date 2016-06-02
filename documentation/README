@@ -1,7 +1,7 @@
 File       : documentation/README
 Author     : Chris Ford <caf@slac.stanford.edu>
 Created    : 2016-05-06
-Last update: 2016-05-06
+Last update: 2016-06-01
 
 Overview
 
@@ -36,7 +36,9 @@ Database Template Macro Requirements
     $(PORT)                 Must match the port name passed to APCI1710Config() (see Configuration Command, below).
     $(ADDR)                 Channel index: 0, 1, 2, 3
     $(ESLO)                 Linear conversion factor (ai record, LINR=SLOPE).  Must be non-0.
+    $(EOFF)                 Linear conversion offset (ai record, LINR=SLOPE).
     $(EGU)                  Human readable engineering unit description, up to 16 chars.
+    $(BSA_FLNK)             FLNK link for RTPOSN record.
 
 
 Configuration Command
@@ -71,7 +73,7 @@ Linux Kernel Requirements
     Name            Origin      Path
     ---------------+----------+-------------------------------------------------------------------------------------------
     apci1710.ko     ADDI-DATA  /afs/slac/g/lcls/package/linuxKernel_Modules/apci1710drv/r1439/buildroot-2015.02-x86_64
-    apci1710ctr.ko  SLAC       /afs/slac/g/lcls/package/linuxKernel_Modules/apci1710ctr/r1439_1_0/buildroot-2015.02-x86_64
+    apci1710ctr.ko  SLAC       /afs/slac/g/lcls/package/linuxKernel_Modules/apci1710ctrDriver/apci1710ctrDriver-R1439-2-1/buildroot-2015.02-x86_64
 
     Module apci1710 is used by module apci1710ctr. Thus one must insert module apci1710.ko into the Linux kernel
     before apci1710ctr.ko.
@@ -98,3 +100,4 @@ Debugging Tips
 To Do List
 
     Add support for multiple counter boards.
+    Add support for configuring digital filter using a PV.

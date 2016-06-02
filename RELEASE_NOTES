@@ -1,3 +1,6 @@
+apci1710-asyn-R1-0-6:   Added workaround so that driver posts callback everytime.
+                        Added EOFF and BSA_FLNK macros.
+
 apci1710-asyn-R1-0-5:   Change EVENT to EVRCLIENT in configure/RELEASE
 
 apci1710-asyn-R1-0-4:   Use evrClient-R1-0-p6
