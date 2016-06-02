@@ -5,6 +5,7 @@ record(ai, "$(P)$(R)POSN")
     field(SCAN, "I/O Intr")
     field(LINR, "SLOPE")
     field(ESLO, "$(ESLO)")
+    field(EOFF, "$(EOFF)")
     field(EGU,  "$(EGU)")
 }
 
@@ -15,7 +16,9 @@ record(ai, "$(P)$(R)RTPOSN")
     field(SCAN, "I/O Intr")
     field(LINR, "SLOPE")
     field(ESLO, "$(ESLO)")
+    field(EOFF, "$(EOFF)")
     field(EGU,  "$(EGU)")
+    field(FLNK, "$(BSA_FLNK)")
     field(TSE,  "-2")
     field(PRIO, "HIGH")
 }

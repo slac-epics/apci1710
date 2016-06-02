@@ -23,10 +23,10 @@ epicsEnvSet("COUNTER_PORT","apci1710")
 dbLoadRecords("$(ASYN)/db/asynRecord.db","P=${COUNTER_PREFIX},R=asyn1,PORT=${COUNTER_PORT},ADDR=0,IMAX=80,OMAX=80")
 
 # Counter Database
-dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS01:,PORT=${COUNTER_PORT},ADDR=0,ESLO=2,EGU=um")
-dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS02:,PORT=${COUNTER_PORT},ADDR=1,ESLO=2,EGU=um")
-dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS03:,PORT=${COUNTER_PORT},ADDR=2,ESLO=2,EGU=um")
-dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS04:,PORT=${COUNTER_PORT},ADDR=3,ESLO=2,EGU=um")
+dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS01:,PORT=${COUNTER_PORT},ADDR=0,ESLO=2,EOFF=0,BSA_FLNK='',EGU=um")
+dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS02:,PORT=${COUNTER_PORT},ADDR=1,ESLO=2,EOFF=0,BSA_FLNK='',EGU=um")
+dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS03:,PORT=${COUNTER_PORT},ADDR=2,ESLO=2,EOFF=0,BSA_FLNK='',EGU=um")
+dbLoadRecords("$(TOP)/db/APCI1710Counter.db","P=${COUNTER_PREFIX},R=WS04:,PORT=${COUNTER_PORT},ADDR=3,ESLO=2,EOFF=0,BSA_FLNK='',EGU=um")
 
 # Timing Databases
 dbLoadRecords("$(TOP)/db/Pattern.db","IOC=${IOC_NAME},SYS=${FAC}")

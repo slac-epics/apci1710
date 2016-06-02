@@ -363,7 +363,9 @@ void APCI1710::interruptThread(int adrs)
       if (setTimeStamp(&time) != asynSuccess) {
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR, "interruptThread(%d): setTimeStamp() failed\n", adrs);
       }
+      setIntegerParam(adrs, counterRTCounts_, buf.counter + 1);
       setIntegerParam(adrs, counterRTCounts_, buf.counter);
+      setIntegerParam(adrs, counterRTPosition_, buf.counter + 1);
       setIntegerParam(adrs, counterRTPosition_, buf.counter);
       callParamCallbacks(adrs);
     } else {
