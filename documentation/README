@@ -1,7 +1,7 @@
 File       : documentation/README
 Author     : Chris Ford <caf@slac.stanford.edu>
 Created    : 2016-05-06
-Last update: 2016-06-01
+Last update: 2016-07-19
 
 Overview
 
@@ -21,10 +21,10 @@ Record Descriptions
 
     Record Name             Description
     -----------------------+----------------------------------------------------------------------------------------------
-    $(P)$(R)Counts          Read the raw counter value; polled at 10 Hz.
-    $(P)$(R)RTCounts        Read the real-time raw counter value; interrupt mode with EVR timestamps support.
-    $(P)$(R)POSN            Read the engineering unit value; polled at 10 Hz.
-    $(P)$(R)RTPOSN          Read the real-time engineering unit value; interrupt mode with EVR timestamps support.
+    $(P)$(R)POLLCounts      Read the raw counter value; polled at 10 Hz.
+    $(P)$(R)Counts          Read the real-time raw counter value; interrupt mode with EVR timestamps support.
+    $(P)$(R)POLLPOSN        Read the engineering unit value; polled at 10 Hz.
+    $(P)$(R)POSN            Read the real-time engineering unit value; interrupt mode with EVR timestamps support.
     $(P)$(R)Reset           Zero the counter by writing 1 to this binary output.
 
 
@@ -38,7 +38,7 @@ Database Template Macro Requirements
     $(ESLO)                 Linear conversion factor (ai record, LINR=SLOPE).  Must be non-0.
     $(EOFF)                 Linear conversion offset (ai record, LINR=SLOPE).
     $(EGU)                  Human readable engineering unit description, up to 16 chars.
-    $(BSA_FLNK)             FLNK link for RTPOSN record.
+    $(BSA_FLNK)             FLNK link for POSN record.
 
 
 Configuration Command
@@ -92,9 +92,9 @@ Debugging Tips
 
     If /proc/driver/apci1710ctr0 is missing then the kernel modules have not been inserted successfully.
 
-    Test the $(P)$(R)Counts record first.  It is a longin record, and it reports raw counts.
-    Test the $(P)$(R)POSN record next.  It is an ai record with LINR=SLOPE; the ESLO macro must be non-0.
-    Test the $(P)$(R)RTCounts $(P)$(R)RTPOSN records last.  They require external interrupts to function.
+    Test the $(P)$(R)POLLCounts record first.  It is a longin record, and it reports raw counts.
+    Test the $(P)$(R)POLLPOSN record next.  It is an ai record with LINR=SLOPE; the ESLO macro must be non-0.
+    Test the $(P)$(R)Counts $(P)$(R)POSN records last.  They require external interrupts to function.
 
 
 To Do List

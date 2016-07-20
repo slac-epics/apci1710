@@ -1,4 +1,4 @@
-record(ai, "$(P)$(R)POSN")
+record(ai, "$(P)$(R)POLLPOSN")
 {
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR))POSITION")
@@ -7,9 +7,10 @@ record(ai, "$(P)$(R)POSN")
     field(ESLO, "$(ESLO)")
     field(EOFF, "$(EOFF)")
     field(EGU,  "$(EGU)")
+    info(autosaveFields, "ESLO EOFF")
 }
 
-record(ai, "$(P)$(R)RTPOSN")
+record(ai, "$(P)$(R)POSN")
 {
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR))RT_POSITION")
@@ -21,16 +22,17 @@ record(ai, "$(P)$(R)RTPOSN")
     field(FLNK, "$(BSA_FLNK)")
     field(TSE,  "-2")
     field(PRIO, "HIGH")
+    info(autosaveFields, "ESLO EOFF")
 }
 
-record(longin, "$(P)$(R)Counts")
+record(longin, "$(P)$(R)POLLCounts")
 {
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR))COUNTER_VALUE")
     field(SCAN, "I/O Intr")
 }
 
-record(longin, "$(P)$(R)RTCounts")
+record(longin, "$(P)$(R)Counts")
 {
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT),$(ADDR))RT_COUNTER_VALUE")

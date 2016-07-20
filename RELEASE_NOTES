@@ -1,3 +1,7 @@
+apci1710-asyn-R1-0-7:   Rename PVs: POSN to POLLPOSN, RTPOSN to POSN,
+                        Counts to POLLCounts, RTCounts to Counts.
+                        Enable autosave for fields ESLO and EOFF.
+
 apci1710-asyn-R1-0-6:   Added workaround so that driver posts callback everytime.
                         Added EOFF and BSA_FLNK macros.
 

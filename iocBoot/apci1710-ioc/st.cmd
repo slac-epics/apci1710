@@ -39,10 +39,10 @@ dbLoadRecords("$(TOP)/db/EvrPci.db","EVR=${EVR_DEV1},CRD=${CRD},SYS=${FAC}")
 #dbLoadRecords("db/bsaSimulator.db","DEVICE=${COUNTER_PREFIX}")
 
 # BSA Database for each data source from above
-#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS01:RTPOSN")
-#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS02:RTPOSN")
-#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS03:RTPOSN")
-#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS04:RTPOSN")
+#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS01:POSN")
+#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS02:POSN")
+#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS03:POSN")
+#dbLoadRecords("db/Bsa.db","DEVICE=${COUNTER_PREFIX}, ATRB=WS04:POSN")
 
 eevrmaConfigure(0, "/dev/vevr0")
 
