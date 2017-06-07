@@ -1,3 +1,6 @@
+R1.2.0: Bumped evrClient to R1.3.0
+        Needed to fix an issue with a typo at evrClient.
+
 R1.1.0: First version of apci1710 with the new Git Workflow with minor adjustments
         to configuration files to build with base R3.15.5.
         - Modules in use:

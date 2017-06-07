@@ -20,7 +20,7 @@
 # could match a directory name.
 # ==========================================================
 ASYN_MODULE_VERSION         = R4.31-0.1.0
-EVRCLIENT_MODULE_VERSION    = R1.1.1
+EVRCLIENT_MODULE_VERSION    = R1.3.0
 MISCUTILS_MODULE_VERSION	= R2.2.4
 
 # ==========================================================
