@@ -1,3 +1,14 @@
+R1.1.0: First version of apci1710 with the new Git Workflow with minor adjustments
+        to configuration files to build with base R3.15.5.
+        - Modules in use:
+            - asyn: R4.31-0.1.0
+            - evrClient: R1.1.1
+            - miscUtils: R2.2.4
+        - Kernel Module:
+            - apci1710ctrDriver/apci1710ctrDriver-R1439-2-1
+            - Cross Targets:
+            - linuxRT_glibc-x86_64 (BR2015) and linuxRT-x86_64 (BR2016)
+
 apci1710-asyn-R1-0-7:   Rename PVs: POSN to POLLPOSN, RTPOSN to POSN,
                         Counts to POLLCounts, RTCounts to Counts.
                         Enable autosave for fields ESLO and EOFF.

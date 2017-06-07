@@ -27,7 +27,7 @@ CHECK_RELEASE = YES
 #CROSS_COMPILER_TARGET_ARCHS =
 #CROSS_COMPILER_TARGET_ARCHS = RTEMS-beatnik RTEMS-mvme3100 RTEMS-uC5282 linuxRT-x86 linuxRT-x86_64 linuxRT_glibc-x86_64
 
-CROSS_COMPILER_TARGET_ARCHS = linuxRT_glibc-x86_64
+CROSS_COMPILER_TARGET_ARCHS = linuxRT_glibc-x86_64 linuxRT-x86_64
 
 # To install files into a location other than $(TOP) define
 #   INSTALL_LOCATION here.
@@ -45,3 +45,10 @@ INSTALL_LOCATION_STARTUP += $(INSTALL_LOCATION)/startup
 DIRECTORY_TARGETS += $(INSTALL_LOCATION_STARTUP)
 STATIC_BUILD=YES
 
+
+# ==================================================================================================
+# Support for APCI1710 Counter Kernel Module
+# ==================================================================================================
+KERNEL_MODULE_APCI1710CTR=$(LINUX_KERNEL_MODULES)/apci1710ctrDriver/apci1710ctrDriver-R1439-2-1
+KERNEL_MODULE_APCI1710CTR_INCLUDE = -I$(KERNEL_MODULE_APCI1710CTR)/src
+# ==================================================================================================
