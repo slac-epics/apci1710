@@ -1,6 +1,1 @@
-include "base.dbd"
-include "system.dbd"
-include "asyn.dbd"
 include "apci1710Support.dbd"
-include "evrSupport.dbd"
-include "devMrfEr.dbd"
