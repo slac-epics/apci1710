@@ -1,3 +1,5 @@
+R1.3.3  bumping evrClient to R1.5.0
+
 R1.3.2: New version to work with EPICS 7
 	EVRCLIENT_MODULE_VERSION    = R1.4.7
 	MISCUTILS_MODULE_VERSION    = R2.2.5

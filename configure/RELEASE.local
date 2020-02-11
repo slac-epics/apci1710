@@ -20,10 +20,9 @@
 # could match a directory name.
 # ==========================================================
 ASYN_MODULE_VERSION         = R4.32-1.0.0
-EVRCLIENT_MODULE_VERSION    = R1.4.7
+EVRCLIENT_MODULE_VERSION    = R1.5.0
 MISCUTILS_MODULE_VERSION    = R2.2.5
 TIMINGAPI_MODULE_VERSION        = R0.6
-BSACORE_MODULE_VERSION          = R1.5.2
 
 # ==========================================================
 # Define module paths using pattern
@@ -34,7 +33,6 @@ BSACORE_MODULE_VERSION          = R1.5.2
 EVRCLIENT   = $(EPICS_MODULES)/evrClient/$(EVRCLIENT_MODULE_VERSION)
 MISCUTILS	= $(EPICS_MODULES)/miscUtils/$(MISCUTILS_MODULE_VERSION)
 TIMINGAPI = $(EPICS_MODULES)/timingApi/$(TIMINGAPI_MODULE_VERSION)
-BSACORE = $(EPICS_MODULES)/BsaCore/$(BSACORE_MODULE_VERSION)
 ASYN        = $(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
 
 
