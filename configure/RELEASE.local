@@ -19,10 +19,10 @@
 # Don't set your version to anything such as "test" that
 # could match a directory name.
 # ==========================================================
-ASYN_MODULE_VERSION         = R4.39-1.0.1
-EVRCLIENT_MODULE_VERSION    = R1.5.1
+ASYN_MODULE_VERSION         = R4.39-1.0.2
+EVRCLIENT_MODULE_VERSION    = R1.5.4
 MISCUTILS_MODULE_VERSION    = R2.2.5
-TIMINGAPI_MODULE_VERSION        = R0.6
+TIMINGAPI_MODULE_VERSION        = R0.9
 
 # ==========================================================
 # Define module paths using pattern
