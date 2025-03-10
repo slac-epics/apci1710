@@ -1,3 +1,8 @@
+R1.3.6  Module upgrades:
+        evrClient R1.5.4
+        timingApi R0.9
+        asyn R4.39-1.0.2
+        Removed obsolete linuxRT_glibc-x86_64 target
 
 R1.3.5  bumping evrClient to R1.5.1
 
